@@ -53,8 +53,6 @@ public class Before_After_Annotations {
     public void afterClass() {
         System.out.println("End of the Class");
     }
-
-
 }
 
 

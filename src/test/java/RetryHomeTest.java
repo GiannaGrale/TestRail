@@ -1,10 +1,11 @@
+import annotations.Before_After_Annotations;
 import core.BrowserService;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class RetryHomeTest {
+public class RetryHomeTest extends Before_After_Annotations {
     private int attempt = 1;
     protected WebDriver driver = new BrowserService().getDriver();
 

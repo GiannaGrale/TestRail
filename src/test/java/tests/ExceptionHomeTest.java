@@ -2,7 +2,11 @@ package tests;
 
 import baseEntities.BaseTest;
 import org.openqa.selenium.InvalidArgumentException;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.DashboardPage;
+import pages.LoginPage;
+import steps.LoginStep;
 
 public class ExceptionHomeTest extends BaseTest {
 
@@ -13,12 +17,15 @@ public class ExceptionHomeTest extends BaseTest {
 
     @Test(enabled = false)
     public  void enableTest(){
-        driver.get("https://aqa06onl01.testrail.io/");
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+        Assert.assertEquals(new DashboardPage(driver, false).getDashboardButtonText(), "DASHBOARD");
     }
 
-    @Test(timeOut = 4000, description = "open website")
+    @Test(timeOut = 4000, description = "login to the website")
     public void waitLongTimeTest()   {
-        driver.get("https://aqa06onl01.testrail.io/");
-
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsernameEmpty(), properties.getPassword());
+        Assert.assertEquals(new LoginPage(driver, false).getErrorLogin().getText(), "Email/Login is required.");
     }
 }

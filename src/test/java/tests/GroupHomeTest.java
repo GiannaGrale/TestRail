@@ -1,39 +1,50 @@
 package tests;
 
 
-import annotations.Before_After_Annotations;
-import org.testng.annotations.Test;
+import core.BrowserService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+import pages.LoginPage;
 
+public class GroupHomeTest {
+    WebDriver driver = new BrowserService().getDriver();
 
-public class GroupHomeTest extends Before_After_Annotations {
-    @Test(groups = "user1")
-    public void testMethod1 (){
-        int m = (int)(Math.random() * 10);
-        System.out.println("User_1 with number " + m);
+    @BeforeTest(groups = "user1")
+    public void beforeTest() {
+        driver.get("https://aqa06onl01.testrail.io/");
+    }
+
+    @AfterTest(groups = "user1")
+    public void teardownMethod() {
+        driver.quit();
     }
 
     @Test(groups = "user1")
-    public void testMethod2 (){
-        int m = (int)(Math.random() * 10);
-        System.out.println("User_1 with number " + m);
+    public void loginToWebsite_1() {
+        driver.findElement(By.xpath("//div/input[@id='name']")).sendKeys("wwfwfwef");
+        driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("22dde");
+        driver.findElement(By.id("button_primary")).click();
+        Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(), "Email/Login or Password is incorrect. Please try again.");
     }
 
     @Test(groups = "user1")
-    public void testMethod3 (){
-        int m = (int)(Math.random() * 10);
-        System.out.println("User_1 with number " + m);
-    }
+    public void loginToWebsite_2() {
+        driver.findElement(By.xpath("//div/input[@id='name']")).sendKeys("login@gmail.com");
+        driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("");
+        driver.findElement(By.id("button_primary")).click();
+        Assert.assertEquals(new LoginPage(driver, false).getErrorPassword().getText(), "Password is required.");
 
-    @Test (groups = "user2")
-    public void testMethod4 (){
-        int m = (int)(Math.random() * 10);
-        System.out.println("User_2 with number " + m);
     }
 
     @Test(groups = "user2")
-    public void testMethod5 (){
-        int m = (int)(Math.random() * 10);
-        System.out.println("User_2 with number " + m);
+    public void loginToWebsite_3() {
+        driver.findElement(By.xpath("//div/input[@id='name']")).sendKeys("");
+        driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("password");
+        driver.findElement(By.id("button_primary")).click();
+        Assert.assertEquals(new LoginPage(driver, false).getErrorLogin().getText(), "Email/Login is required..");
+
     }
 }
 
