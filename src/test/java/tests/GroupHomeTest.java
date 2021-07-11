@@ -35,7 +35,6 @@ public class GroupHomeTest {
         driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("");
         driver.findElement(By.id("button_primary")).click();
         Assert.assertEquals(new LoginPage(driver, false).getErrorPassword().getText(), "Password is required.");
-
     }
 
     @Test(groups = "user2")
@@ -44,10 +43,5 @@ public class GroupHomeTest {
         driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("password");
         driver.findElement(By.id("button_primary")).click();
         Assert.assertEquals(new LoginPage(driver, false).getErrorLogin().getText(), "Email/Login is required..");
-
     }
 }
-
-
-
-

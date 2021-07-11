@@ -10,7 +10,7 @@ public class DashboardPage extends BasePage {
     private final static String endpoint = "index.php?/dashboard";
     private final static By navigation_Dashboard_By = By.id("navigation-dashboard");
     private final static By add_Project_Button_By = By.id("sidebar-projects-add");
-    private final static By choose_project_By = By.xpath("//td/a[contains(text(),'Lesson_10_Anna_addedProject')]");
+    private final static String choose_project_By = "//td/a[contains(text(),'replace')]";
 
     public DashboardPage(WebDriver driver, boolean openPageByURL) {
         super(driver, openPageByURL);
@@ -38,9 +38,7 @@ public class DashboardPage extends BasePage {
         return driver.findElement(add_Project_Button_By);
     }
 
-    public WebElement getChosenProject() {
-        return driver.findElement(choose_project_By);
-    }
+    public WebElement getChosenProject(String projectName) { return driver.findElement(By.xpath(choose_project_By.replace("replace", projectName))); }
 
     public String getDashboardButtonText() {
         return getDashboardButton().getText();

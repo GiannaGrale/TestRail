@@ -1,6 +1,5 @@
 package baseEntities;
 
-
 import org.openqa.selenium.WebDriver;
 
 public class BaseStep {

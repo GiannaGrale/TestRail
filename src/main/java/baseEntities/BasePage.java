@@ -8,11 +8,9 @@ public abstract class BasePage {
     protected static int waitForPageLoadingSec = 15;
     protected ReadProperties properties;
 
-
     protected abstract void openPage();
 
     public abstract boolean isPageOpened();
-
 
     public BasePage(WebDriver driver, boolean openPageByURL) {
         this.driver = driver;

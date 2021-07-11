@@ -21,16 +21,16 @@ public class ProjectStep extends BaseStep {
         projectPage.getAddProjectButton().click();
     }
 
-    public void deleteProject() {
+    public void deleteProject(String projectName) {
         AdminOverviewPage adminOverviewPage = new AdminOverviewPage(driver, false);
-        adminOverviewPage.getDeleteProjectButton().click();
+        adminOverviewPage.getDeleteProjectButton(projectName).click();
         adminOverviewPage.getDeleteConfirmationWindow().click();
         adminOverviewPage.getDeleteConfirmationButton().click();
     }
 
-    public void updateProject() {
+    public void updateProject(String projectName) {
         AdminOverviewPage adminOverviewPage = new AdminOverviewPage(driver, false);
-        adminOverviewPage.getEditButton().click();
+        adminOverviewPage.getEditButton(projectName).click();
         ProjectPage projectPage = new ProjectPage(driver, false);
         projectPage.getProjectNameInput().sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
         projectPage.getProjectNameInput().sendKeys("Lesson_10_Anna_UPD_Project");

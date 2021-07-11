@@ -51,37 +51,39 @@ public class SmokeTest extends BaseTest {
 
     @Test(invocationCount = 2)
     public void positiveDeleteProjectTest() {
+        String projectName = "Lesson_10_Anna_addedProject";
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
         ProjectStep projectStep = new ProjectStep(driver);
         projectStep.addProject();
-        projectStep.deleteProject();
+        projectStep.deleteProject(projectName);
         Assert.assertEquals(new AdminOverviewPage(driver, false).getSuccessConfirmationMessage().getText(), "Successfully deleted the project.");
     }
 
     @Test(invocationCount = 2)
     public void positiveUpdateProjectTest() {
+        String projectName = "Lesson_10_Anna_addedProject";
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
         ProjectStep projectStep = new ProjectStep(driver);
         projectStep.addProject();
-        projectStep.updateProject();
+        projectStep.updateProject(projectName);
         Assert.assertEquals(new AdminOverviewPage(driver, false).getSuccessConfirmationMessage().getText(), "Successfully updated the project.");
     }
 
     @Test(dataProvider = "TestCases", dataProviderClass = TestCaseStatProvider.class)
-    public void positiveTestCaseCreationTest(String projectName, String preconditions, String steps, String expectedResult) {
+    public void positiveTestCaseCreationTest(String testCaseName, String preconditions, String steps, String expectedResult) {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
         ProjectStep projectStep = new ProjectStep(driver);
         projectStep.addProject();
         TestCaseStep testCaseStep = new TestCaseStep(driver);
-        testCaseStep.createTestCase(projectName, preconditions, steps, expectedResult);
+        testCaseStep.createTestCase(testCaseName, preconditions, steps, expectedResult);
         Assert.assertEquals(new CaseViewPage(driver, false).getMessageSuccessText(), "Successfully added the new test case. Add another");
     }
 
     @Test(dataProvider = "EditTestCases", dataProviderClass = TestCaseStatProvider.class)
-    public void positiveTestCaseEditTest(String projectName, String newProjectName, String preconditions,
+    public void positiveTestCaseEditTest(String testCaseName, String newTestCaseName, String preconditions,
                                          String newPreconditions, String steps, String newSteps,
                                          String expectedResult, String newExpectedResult)  {
         LoginStep loginStep = new LoginStep(driver);
@@ -89,19 +91,19 @@ public class SmokeTest extends BaseTest {
         ProjectStep projectStep = new ProjectStep(driver);
         projectStep.addProject();
         TestCaseStep testCaseStep = new TestCaseStep(driver);
-        testCaseStep.createTestCase(projectName, preconditions, steps, expectedResult);
-        testCaseStep.editTestCase(newProjectName, newPreconditions, newSteps, newExpectedResult);
+        testCaseStep.createTestCase(testCaseName, preconditions, steps, expectedResult);
+        testCaseStep.editTestCase(newTestCaseName, newPreconditions, newSteps, newExpectedResult);
         Assert.assertEquals(new CaseViewPage(driver, false).getMessageSuccessText(), "Successfully updated the test case.");
     }
 
     @Test(dataProvider = "TestCases", dataProviderClass = TestCaseStatProvider.class)
-    public void positiveTestCaseDeleteTest(String projectName, String preconditions, String steps, String expectedResult) throws InterruptedException {
+    public void positiveTestCaseDeleteTest(String testCaseName, String preconditions, String steps, String expectedResult) throws InterruptedException {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
         ProjectStep projectStep = new ProjectStep(driver);
         projectStep.addProject();
         TestCaseStep testCaseStep = new TestCaseStep(driver);
-        testCaseStep.createTestCase(projectName, preconditions, steps, expectedResult);
+        testCaseStep.createTestCase(testCaseName, preconditions, steps, expectedResult);
         testCaseStep.deleteTestCase();
         Assert.assertEquals(new SuitesViewPage(driver, false).getNumberOfTestCases().getText(), "0");
     }
