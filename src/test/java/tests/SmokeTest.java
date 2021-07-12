@@ -11,7 +11,7 @@ import steps.TestCaseStep;
 
 public class SmokeTest extends BaseTest {
 
-    @Test(priority = 1, invocationCount = 2,invocationTimeOut = 3000, threadPoolSize = 2)
+    @Test(priority = 1, invocationCount = 2)
     public void positiveLoginTest() {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
@@ -25,7 +25,7 @@ public class SmokeTest extends BaseTest {
         Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(), "Email/Login or Password is incorrect. Please try again.");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3, invocationTimeOut = 10000, threadPoolSize = 2)
     public void negativeLoginTest2() {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPasswordEmpty());
@@ -38,7 +38,6 @@ public class SmokeTest extends BaseTest {
         loginStep.login(properties.getUsernameEmpty(), properties.getPassword());
         Assert.assertEquals(new LoginPage(driver, false).getErrorLogin().getText(), "Email/Login is required.");
     }
-
 
     @Test(invocationCount = 2)
     public void positiveAddProjectTest() {

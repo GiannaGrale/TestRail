@@ -23,24 +23,24 @@ public class GroupHomeTest {
 
     @Test(groups = "user1")
     public void loginToWebsite_1() {
-        driver.findElement(By.xpath("//div/input[@id='name']")).sendKeys("wwfwfwef");
-        driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("22dde");
+        driver.findElement(By.id("name")).sendKeys("wwfwfwef");
+        driver.findElement(By.id("password")).sendKeys("22dde");
         driver.findElement(By.id("button_primary")).click();
         Assert.assertEquals(new LoginPage(driver, false).getErrorMessage().getText(), "Email/Login or Password is incorrect. Please try again.");
     }
 
     @Test(groups = "user1")
     public void loginToWebsite_2() {
-        driver.findElement(By.xpath("//div/input[@id='name']")).sendKeys("login@gmail.com");
-        driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("");
+        driver.findElement(By.id("name")).sendKeys("login@gmail.com");
+        driver.findElement(By.id("password")).sendKeys("");
         driver.findElement(By.id("button_primary")).click();
         Assert.assertEquals(new LoginPage(driver, false).getErrorPassword().getText(), "Password is required.");
     }
 
     @Test(groups = "user2")
     public void loginToWebsite_3() {
-        driver.findElement(By.xpath("//div/input[@id='name']")).sendKeys("");
-        driver.findElement(By.xpath("//div/input[@id='password']")).sendKeys("password");
+        driver.findElement(By.id("name")).sendKeys("");
+        driver.findElement(By.id("password")).sendKeys("password");
         driver.findElement(By.id("button_primary")).click();
         Assert.assertEquals(new LoginPage(driver, false).getErrorLogin().getText(), "Email/Login is required.");
     }
