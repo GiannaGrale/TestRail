@@ -34,7 +34,7 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getUsernameInput() {
-        return driver.findElement(username_Input_By);
+        return  driver.findElement(username_Input_By);
     }
 
     public WebElement getPasswordInput() {
@@ -42,7 +42,7 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getLoginButton() {
-        return driver.findElement(login_Button_By);
+        return waits.waitForVisibility(login_Button_By);
     }
 
     public WebElement getErrorMessage() {

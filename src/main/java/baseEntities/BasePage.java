@@ -1,12 +1,17 @@
 package baseEntities;
 
+import core.BrowserService;
 import core.ReadProperties;
+import core.Waits;
 import org.openqa.selenium.WebDriver;
+
 
 public abstract class BasePage {
     protected WebDriver driver;
     protected static int waitForPageLoadingSec = 15;
-    protected ReadProperties properties;
+    protected ReadProperties properties = new ReadProperties();
+    protected BrowserService browserService;
+    protected Waits waits;
 
     protected abstract void openPage();
 
@@ -14,6 +19,7 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver, boolean openPageByURL) {
         this.driver = driver;
+        this.waits = new Waits(driver, properties.getTimeout());
         properties = new ReadProperties();
 
         if (openPageByURL) {
