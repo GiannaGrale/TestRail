@@ -1,4 +1,4 @@
-package tests;
+package tests.lesson_11;
 
 import baseEntities.BaseTest;
 import org.openqa.selenium.By;

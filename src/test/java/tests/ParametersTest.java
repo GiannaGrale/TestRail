@@ -15,7 +15,7 @@ public class ParametersTest extends BaseTest {
     @Parameters({"paramName", "paramPreconditions", "paramSteps", "paramExpectedResult"})
     public void positiveTestCaseCreationTestParam(@Optional("Default_Name") String paramName,
                                                   @Optional("Default_Params") String paramPreconditions,
-                                                  @Optional("Default_Steps")String paramSteps,
+                                                  @Optional("Default_Steps") String paramSteps,
                                                   @Optional("Default_ExpResult") String paramExpectedResult) {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
