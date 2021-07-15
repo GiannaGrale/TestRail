@@ -29,7 +29,7 @@ public class DownLoadFileTest {
         driver.get("http://the-internet.herokuapp.com/download");
 
 
-        List<WebElement> list = driver.findElements(By.xpath("//*[@id='content']/div/a[3]"));
+        List<WebElement> list = driver.findElements(By.linkText("pooh.jpg"));
         WebElement element = list.get(list.size() - 1);
         element.click();
         Thread.sleep(4000);
@@ -46,7 +46,7 @@ public class DownLoadFileTest {
             if (listOfFile.isFile()) {
                 String fileName = listOfFile.getName();
                 System.out.println("File " + listOfFile.getName());
-                if (fileName.matches("friendly-parrot-1.jpg")) {
+                if (fileName.matches("pooh.jpg")) {
                     picture = new File(fileName);
                     found = true;
                 }
