@@ -10,7 +10,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.io.File;
+
 import java.util.HashMap;
+
 
 
 public class DownLoadFileTest {
@@ -27,7 +29,7 @@ public class DownLoadFileTest {
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/download");
 
-        WebElement fileDown = driver.findElement(By.xpath("//*[@id='content']/div/a[2]"));
+        WebElement fileDown = driver.findElement(By.xpath("//*[@id='content']/div/a[3]"));
         fileDown.click();
         Thread.sleep(4000);
 
@@ -50,6 +52,6 @@ public class DownLoadFileTest {
         }
         Assert.assertTrue(found, "Downloaded document is not found");
         text.deleteOnExit();
-        driver.close();
+        driver.quit();
     }
 }
