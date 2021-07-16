@@ -29,8 +29,8 @@ public class DownLoadFileTest {
         driver.get("http://the-internet.herokuapp.com/download");
 
 
-        List<WebElement> list = driver.findElements(By.linkText("pooh.jpg"));
-        WebElement element = list.get(list.size() - 1);
+        List<WebElement> list = driver.findElements(By.linkText("text.txt"));
+          WebElement element = list.get(list.size() - 1);
         element.click();
         Thread.sleep(4000);
 
@@ -39,15 +39,15 @@ public class DownLoadFileTest {
         File[] listOfFiles = folder.listFiles();
 
         boolean found = false;
-        File picture = null;
+        File text = null;
 
         assert listOfFiles != null;
         for (File listOfFile : listOfFiles) {
             if (listOfFile.isFile()) {
                 String fileName = listOfFile.getName();
                 System.out.println("File " + listOfFile.getName());
-                if (fileName.matches("pooh.jpg")) {
-                    picture = new File(fileName);
+                if (fileName.matches("text.txt")) {
+                    text = new File(fileName);
                     found = true;
                 }
 
@@ -55,7 +55,7 @@ public class DownLoadFileTest {
         }
 
         Assert.assertTrue(found, "Downloaded document is not found");
-        picture.deleteOnExit();
+        text.deleteOnExit();
         driver.close();
     }
 }
