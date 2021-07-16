@@ -9,10 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
+
 
 public class DownLoadFileTest {
     @Test
@@ -28,9 +27,8 @@ public class DownLoadFileTest {
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/download");
 
-        List<WebElement> list = driver.findElements(By.linkText("text.txt"));
-        WebElement element = list.get(list.size() - 1);
-        element.click();
+        WebElement fileDown = driver.findElement(By.xpath("//*[@id='content']/div/a[2]"));
+        fileDown.click();
         Thread.sleep(4000);
 
         File folder = new File(System.getProperty("user.dir"));
@@ -42,13 +40,12 @@ public class DownLoadFileTest {
         assert listOfFiles != null;
         for (File listOfFile : listOfFiles) {
             if (listOfFile.isFile()) {
-                String fileName = listOfFile.getName();
+                String fileName = fileDown.getText();
                 System.out.println("File " + listOfFile.getName());
-                if (fileName.matches("text.txt")) {
+                if (fileName.matches(fileName)) {
                     text = new File(fileName);
                     found = true;
                 }
-
             }
         }
         Assert.assertTrue(found, "Downloaded document is not found");
