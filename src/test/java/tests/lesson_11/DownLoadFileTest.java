@@ -28,14 +28,12 @@ public class DownLoadFileTest {
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/download");
 
-
         List<WebElement> list = driver.findElements(By.linkText("text.txt"));
-          WebElement element = list.get(list.size() - 1);
+        WebElement element = list.get(list.size() - 1);
         element.click();
         Thread.sleep(4000);
 
         File folder = new File(System.getProperty("user.dir"));
-
         File[] listOfFiles = folder.listFiles();
 
         boolean found = false;
@@ -53,7 +51,6 @@ public class DownLoadFileTest {
 
             }
         }
-
         Assert.assertTrue(found, "Downloaded document is not found");
         text.deleteOnExit();
         driver.close();
