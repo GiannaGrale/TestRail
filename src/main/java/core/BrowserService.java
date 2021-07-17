@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.Waits;
 
-import java.beans.Visibility;
 import java.util.concurrent.TimeUnit;
 
 public class BrowserService {

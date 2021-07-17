@@ -1,6 +1,6 @@
 package baseEntities;
 
-import core.Waits;
+import utils.Waits;
 import org.openqa.selenium.WebDriver;
 
 public class BaseStep {
