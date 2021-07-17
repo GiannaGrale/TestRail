@@ -14,7 +14,6 @@ import java.io.File;
 import java.util.HashMap;
 
 
-
 public class DownLoadFileTest {
     @Test
     public void downloadFile() throws InterruptedException {

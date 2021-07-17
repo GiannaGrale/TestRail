@@ -30,7 +30,6 @@ public class AdvancedElementsHomeTaskTest extends BaseTest {
 
         WebElement button = driver.findElement(By.xpath("//*[@id='checkbox-example']/button"));
         WebElement checkBox = driver.findElement(By.id("checkbox"));
-        WebElement input = driver.findElement(By.id("input-example"));
         WebElement enableButton = driver.findElement(By.xpath("//*[@id='input-example']/button"));
 
         Actions actions = new Actions(driver);
@@ -56,17 +55,15 @@ public class AdvancedElementsHomeTaskTest extends BaseTest {
     }
 
     @Test
-    public void uploadFileTest() throws InterruptedException {
+    public void uploadFileTest()  {
         driver.get("http://the-internet.herokuapp.com/upload");
         WebElement uploadFile = driver.findElement(By.id("file-upload"));
         File file = new File(System.getProperty("user.dir") + "/Man-Silhouette.jpg");
         String picturePath = file.getAbsolutePath();
         uploadFile.sendKeys(picturePath);
         driver.findElement(By.id("file-submit")).submit();
-        Thread.sleep(2000);
         String nameOfPicture = driver.findElement(By.id("uploaded-files")).getText();
         waits.waitForVisibility(By.xpath("//h3[text()='File Uploaded!']"));
         Assert.assertEquals(nameOfPicture, "Man-Silhouette.jpg");
-
     }
 }
