@@ -41,7 +41,6 @@ public class TestRailUploadHomeTask extends BaseTest {
         StringSelection stringSelection = new StringSelection(getFile());
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
         Robot robot = new Robot();
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_V);
         robot.keyRelease(KeyEvent.VK_V);
