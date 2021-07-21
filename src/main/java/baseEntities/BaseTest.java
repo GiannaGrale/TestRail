@@ -3,9 +3,9 @@ package baseEntities;
 
 import core.BrowserService;
 import core.ReadProperties;
-import utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+import utils.Waits;
 
 public class BaseTest {
     protected WebDriver driver;
