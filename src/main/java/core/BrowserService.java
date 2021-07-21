@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import utils.Waits;
 
-import java.beans.Visibility;
 import java.util.concurrent.TimeUnit;
 
 public class BrowserService {

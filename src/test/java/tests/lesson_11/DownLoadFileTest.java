@@ -27,11 +27,9 @@ public class DownLoadFileTest {
 
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/download");
-
         WebElement fileDown = driver.findElement(By.xpath("//*[@id='content']/div/a[3]"));
         fileDown.click();
         Thread.sleep(4000);
-
         File folder = new File(System.getProperty("user.dir"));
         File[] listOfFiles = folder.listFiles();
 
