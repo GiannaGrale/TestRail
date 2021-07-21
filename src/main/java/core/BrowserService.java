@@ -8,10 +8,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.Waits;
+
+import java.beans.Visibility;
+import java.util.concurrent.TimeUnit;
 
 public class BrowserService {
     private ReadProperties properties = new ReadProperties();
     private WebDriver driver;
+    private Waits wait;
+
 
     public BrowserService() {
         switch (properties.getBrowser().toLowerCase()) {
@@ -36,9 +42,17 @@ public class BrowserService {
             default:
                 throw new AssertionError("This browser is not supported");
         }
+
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
+        wait = new Waits(driver, properties.getTimeout());
+        driver.getTitle();
     }
 
     public WebDriver getDriver() {
         return driver;
+    }
+
+    public Waits getWait() {
+        return wait;
     }
 }

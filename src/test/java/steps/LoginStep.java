@@ -2,6 +2,7 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.LoginPage;
 
 public class LoginStep extends BaseStep {
@@ -13,6 +14,10 @@ public class LoginStep extends BaseStep {
         LoginPage loginPage = new LoginPage(driver, true);
         loginPage.setUsername(username);
         loginPage.setPassword(password);
+        WebElement button = loginPage.getLoginButton();
         loginPage.clickLoginButton();
+        wait.waitForInvisibility(button);
     }
 }
+
+
