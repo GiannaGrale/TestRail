@@ -7,5 +7,4 @@ public class Listener implements ITestListener {
         System.out.println("Make screenshot.");
         System.out.println("Status is " + result.getStatus());
     }
-
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite" thread-count="3" parallel="classes">
+    <test name="Smoke Test">
+        <classes>
+            <class name="tests.ParametersTest"></class>
+            <class name="tests.ExceptionHomeTest"></class>
+            <class name="tests.GroupHomeTest"></class>
+        </classes>
+    </test>
+</suite>

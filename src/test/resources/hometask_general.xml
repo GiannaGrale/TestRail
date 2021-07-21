@@ -3,13 +3,12 @@
 <suite name="Main Suite">
     <test name="SmokeTest">
         <classes>
-            <class name="CalcTest"></class>
+            <class name="tests.SmokeTest"></class>
         </classes>
     </test>
     <test name="Regression">
         <classes>
-            <class name="CalcTest"></class>
-            <class name="CalcTest1"></class>
+            <class name="RetryHomeTest"></class>
         </classes>
     </test>
 </suite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite">
+    <parameter name="paramName" value="ParamProject"></parameter>
+    <parameter name="paramPreconditions" value="some param condition"></parameter>
+    <parameter name="paramSteps" value="several param steps"></parameter>
+    <parameter name="paramExpectedResult" value="some param expected result"></parameter>
+    <test name="SmokeTest">
+        <classes>
+            <class name="tests.ParametersTest"></class>
+        </classes>
+    </test>
+</suite>

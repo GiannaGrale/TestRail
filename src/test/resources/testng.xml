@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Main Suite">
-    <test name="GroupTest"> 
+    <test name="GroupHomeTask">
     <groups>
         <define name="Group1">
             <include name="user1"></include>
@@ -14,7 +14,7 @@
         </run>
     </groups>
         <classes>
-            <class name="GroupTest"></class>
+            <class name="tests.GroupHomeTest"></class>
         </classes>
 </test>
 </suite>
