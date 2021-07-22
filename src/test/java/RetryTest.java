@@ -1,5 +1,6 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class RetryTest {
     private int attempt =1;

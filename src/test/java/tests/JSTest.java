@@ -1,6 +1,7 @@
 package tests;
 
 import baseEntities.BaseTest;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 
 public class JSTest extends BaseTest {
 
+    @Description("The first js test")
     @Test
     public void jsTest1() {
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
@@ -21,7 +23,7 @@ public class JSTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("added-manually")));
     }
 
-    @Test
+    @Test(description = "the second js test")
     public void jsTest2() throws InterruptedException {
         driver.get("https://www.onliner.by/");
         WebElement button = driver.findElement(By.xpath("//a[.='Все новости о людях']"));

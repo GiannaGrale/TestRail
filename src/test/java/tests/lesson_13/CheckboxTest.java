@@ -3,6 +3,7 @@ package tests.lesson_13;
 import baseEntities.BaseTest;
 import elements.Checkbox;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.ProjectPage;

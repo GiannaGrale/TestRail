@@ -46,6 +46,5 @@ public abstract class BasePage {
         if (!isPageOpenedIndicator) {
             throw new AssertionError("Page was not opened");
         }
-
     }
 }
