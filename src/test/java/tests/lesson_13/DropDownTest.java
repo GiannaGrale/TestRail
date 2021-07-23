@@ -16,7 +16,7 @@ public class DropDownTest extends BaseTest {
         loginStep.login(properties.getUsername(), properties.getPassword());
         DashboardPage dashboardPage = new DashboardPage(driver, true);
         dashboardPage.isPageOpened();
-        DropDown dropDown = new DropDown(driver, By.id("helpDropdown"), By.id("navigation-menu"));
+        DropDown dropDown = new DropDown(driver, By.cssSelector(".dropdown-menu-link"), By.id("navigation-menu"));
         dropDown.chooseDropDown();
         dropDown.selectByText("About TestRail");
         waits.waitForVisibility(By.className("dialog-logo"));
