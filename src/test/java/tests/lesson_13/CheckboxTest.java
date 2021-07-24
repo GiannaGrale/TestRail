@@ -24,6 +24,7 @@ public class CheckboxTest extends BaseTest {
         projectPage.getAddProjectButton().click();
     }
 
+    @Test
     public void checkBoxTest2() {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
