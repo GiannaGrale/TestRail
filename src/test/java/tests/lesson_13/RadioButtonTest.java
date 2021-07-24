@@ -36,6 +36,7 @@ public class RadioButtonTest extends BaseTest {
         projectPage.getAnnouncementInput().sendKeys("Just some text here");
         RadioButton radioButton = new RadioButton(driver, By.name("suite_mode"));
         radioButton.selectByText("Use a single repository with baseline support");
+        radioButton.getNumberOfButtons();
         projectPage.getAddProjectButton().click();
         Thread.sleep(2000);
     }

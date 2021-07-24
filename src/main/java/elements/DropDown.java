@@ -3,15 +3,21 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 
 public class DropDown {
 
-    private UIElement uiElement;
     private WebDriver driver;
     private WebElement parentElement;
     private List<WebElement> navElements;
 
+    /***
+     *
+     * @param driver
+     * @param by search of all elements in the dropdown
+     * @param parentBy show the list of the dropdown
+     */
 
     public DropDown(WebDriver driver, By by, By parentBy) {
         this.driver = driver;
@@ -33,7 +39,4 @@ public class DropDown {
         }
     }
 }
-
-
-
 

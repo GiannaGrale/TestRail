@@ -45,4 +45,8 @@ public class RadioButton {
             }
         }
     }
+
+    public void getNumberOfButtons() {
+        System.out.println("The number of radio buttons is "+ options.size());
+    }
 }

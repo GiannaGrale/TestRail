@@ -23,4 +23,17 @@ public class CheckboxTest extends BaseTest {
         checkbox.click();
         projectPage.getAddProjectButton().click();
     }
+
+    public void checkBoxTest2() {
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.login(properties.getUsername(), properties.getPassword());
+        DashboardPage dashboardPage = new DashboardPage(driver, true);
+        dashboardPage.getAddProjectButton().click();
+        ProjectPage projectPage = new ProjectPage(driver, true);
+        projectPage.getProjectNameInput().sendKeys("Lesson_13_Anna_Checkbox");
+        projectPage.getAnnouncementInput().sendKeys("Just some text here");
+        Checkbox checkbox = new Checkbox(driver, By.id("show_announcement"));
+        checkbox.changeState(true);
+        projectPage.getAddProjectButton().click();
+    }
 }
