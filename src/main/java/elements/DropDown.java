@@ -34,7 +34,7 @@ public class DropDown {
     }
 
     public void selectByText(String optionName) {
-        for (WebElement uiElement : navElements) {
+        for (UIElement uiElement : navElements) {
             String textValue = uiElement.getText();
             if (textValue.equalsIgnoreCase(optionName)) {
                 uiElement.click();
