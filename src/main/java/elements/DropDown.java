@@ -11,7 +11,7 @@ public class DropDown {
 
     private WebDriver driver;
     private WebElement parentElement;
-    private List<WebElement> navElements = new ArrayList<>();
+    private List<UIElement> navElements = new ArrayList<>();
 
     /***
      *
@@ -43,4 +43,3 @@ public class DropDown {
         }
     }
 }
-
