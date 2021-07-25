@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DropDown {
 
     private WebDriver driver;
     private WebElement parentElement;
-    private List<WebElement> navElements;
+    private List<WebElement> navElements = new ArrayList<>();
 
     /***
      *
@@ -21,8 +22,11 @@ public class DropDown {
 
     public DropDown(WebDriver driver, By by, By parentBy) {
         this.driver = driver;
-        navElements = driver.findElements(by);
         this.parentElement = new UIElement(driver, parentBy);
+
+        for (WebElement webElement : driver.findElements(by)) {
+            navElements.add(new UIElement(driver, webElement));
+        }
     }
 
     public void chooseDropDown() {
@@ -30,10 +34,10 @@ public class DropDown {
     }
 
     public void selectByText(String optionName) {
-        for (WebElement element : navElements) {
-            String textValue = element.getText();
+        for (WebElement uiElement : navElements) {
+            String textValue = uiElement.getText();
             if (textValue.equalsIgnoreCase(optionName)) {
-                element.click();
+                uiElement.click();
                 break;
             }
         }
