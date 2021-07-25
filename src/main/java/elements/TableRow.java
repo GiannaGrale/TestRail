@@ -16,19 +16,13 @@ public class TableRow {
     public TableRow(WebDriver driver, By by) {
         this.driver = driver;
         this.uiElement = new UIElement(driver, by);
-
-        for (WebElement element : this.uiElement.findElements(By.tagName("td"))) {
-            cellList.add(new Cell(driver, element));
-        }
+        getEachCell();
     }
 
     public TableRow(WebDriver driver, WebElement webElement) {
         this.driver = driver;
         this.uiElement = new UIElement(driver, webElement);
-
-        for (WebElement element : this.uiElement.findElements(By.tagName("td"))) {
-            cellList.add(new Cell(driver, element));
-        }
+        getEachCell();
     }
 
     public int getCellsCount() {
@@ -42,5 +36,11 @@ public class TableRow {
      */
     public Cell getCellByIndex(int columnIndex) {
         return cellList.get(columnIndex);
+    }
+
+    public void getEachCell() {
+        for (WebElement element : this.uiElement.findElements(By.tagName("td"))) {
+            cellList.add(new Cell(driver, element));
+        }
     }
 }

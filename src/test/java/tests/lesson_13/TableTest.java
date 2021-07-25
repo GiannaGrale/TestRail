@@ -1,4 +1,4 @@
-package tests;
+package tests.lesson_13;
 
 import baseEntities.BaseTest;
 import elements.Table;
