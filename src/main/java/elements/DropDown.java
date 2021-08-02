@@ -1,6 +1,7 @@
 package elements;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -33,13 +34,16 @@ public class DropDown {
         this.parentElement.click();
     }
 
-       //start from index 1
+    //start from index 1
     public void selectByIndex(int index) {
-         navElements.get(index+1).click();
+        try {
+            navElements.get(index + 1).click();
+        } catch (Exception e) {
+            System.out.println("Invalid value");
         }
+    }
 
-
-    public void selectByText(String optionName) {
+    public void selectByText(String optionName) throws ElementNotInteractableException {
         for (UIElement uiElement : navElements) {
             String textValue = uiElement.getText();
             if (textValue.equalsIgnoreCase(optionName)) {
@@ -49,3 +53,8 @@ public class DropDown {
         }
     }
 }
+
+
+
+
+
