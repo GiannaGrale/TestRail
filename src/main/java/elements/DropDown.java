@@ -29,9 +29,15 @@ public class DropDown {
         }
     }
 
-    public void chooseDropDown() {
+    public void openMenu() {
         this.parentElement.click();
     }
+
+       //start from index 1
+    public void selectByIndex(int index) {
+         navElements.get(index+1).click();
+        }
+
 
     public void selectByText(String optionName) {
         for (UIElement uiElement : navElements) {

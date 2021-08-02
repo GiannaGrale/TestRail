@@ -1,8 +1,11 @@
+package tests.lesson_10;
+
 import annotations.Before_After_Annotations;
 import core.BrowserService;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 
 public class RetryHomeTest extends Before_After_Annotations {

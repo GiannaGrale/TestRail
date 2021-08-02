@@ -3,6 +3,7 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +23,12 @@ public class Table {
         this.driver = driver;
         this.uiElement = new UIElement(driver, by);
 
+        // три колонки в таблице (project, edit, delete)
         for (WebElement element : this.uiElement.findElements(By.xpath("//tr[@class = 'header']/th"))) {
             columnList.add(element.getText());
         }
 
+        // строка в таблице
         for (WebElement element : this.uiElement.findElements(By.xpath("//tr[@class !='header']"))) {
             rowList.add(new TableRow(driver, element));
         }
@@ -35,10 +38,14 @@ public class Table {
         return rowList.size();
     }
 
+    /* ищем строку с опред. индексом,из этой строки выбираем ячейку, которая помещена в опред. колонку
+    и получаем из нее нужный веб элемент*/
     public UIElement getElementFromCell(int rowIndex, int columnIndex) {
         return rowList.get(rowIndex).getCellByIndex(columnIndex).getUIElement();
     }
 
+    /* ищем строку из коллекции с выбранным индексом,из этой строки выбираем ячейку !по имени!, которая помещена в выбранную колонку
+       и получаем из нее нужный веб элемент*/
     public UIElement getElementFromCell(String expectedText, int expectedColumn, int columnIndex) {
         for (TableRow row : rowList) {
             if (row.getCellByIndex(expectedColumn).getUIElement().getText().equalsIgnoreCase(expectedText)) {
@@ -48,6 +55,8 @@ public class Table {
         return null;
     }
 
+    /* ищем строку из коллекции с выбранным индексом,из этой строки выбираем ячейку !по имени!,
+    которая помещена в колонку !под именем! и получаем из нее нужный веб элемент*/
     public UIElement getElementFromCell(String expectedText, int expectedColumn, String columnName) {
         return getElementFromCell(expectedText, expectedColumn, columnList.indexOf(columnName));
     }

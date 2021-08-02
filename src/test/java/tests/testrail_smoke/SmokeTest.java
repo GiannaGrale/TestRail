@@ -1,4 +1,4 @@
-package tests;
+package tests.testrail_smoke;
 
 import baseEntities.BaseTest;
 import dataProvider.TestCaseStatProvider;

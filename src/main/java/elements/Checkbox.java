@@ -1,19 +1,15 @@
 package elements;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 
 public class Checkbox {
+
     private final UIElement element;
 
     public Checkbox(WebDriver driver, By by) {
         this.element = new UIElement(driver, by);
-    }
-
-    public void click() {
-        this.element.click();
     }
 
     public boolean isSelected() {
@@ -21,6 +17,6 @@ public class Checkbox {
     }
 
     public void changeState(boolean makeSelected) {
-        if (this.isSelected() != makeSelected) this.click();
+        if (this.isSelected() != makeSelected) this.element.click();
     }
 }

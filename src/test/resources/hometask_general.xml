@@ -3,12 +3,12 @@
 <suite name="Main Suite">
     <test name="SmokeTest">
         <classes>
-            <class name="tests.SmokeTest"></class>
+            <class name="tests.testrail_smoke.SmokeTest"></class>
         </classes>
     </test>
     <test name="Regression">
         <classes>
-            <class name="RetryHomeTest"></class>
+            <class name="tests.lesson_10.RetryHomeTest"></class>
         </classes>
     </test>
 </suite>

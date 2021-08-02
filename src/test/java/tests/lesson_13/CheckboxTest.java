@@ -20,7 +20,7 @@ public class CheckboxTest extends BaseTest {
         projectPage.getProjectNameInput().sendKeys("Lesson_13_Anna_Checkbox");
         projectPage.getAnnouncementInput().sendKeys("Just some text here");
         Checkbox checkbox = new Checkbox(driver, By.id("show_announcement"));
-        checkbox.click();
+        checkbox.changeState(true);
         projectPage.getAddProjectButton().click();
     }
 
