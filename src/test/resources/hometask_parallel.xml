@@ -3,9 +3,9 @@
 <suite name="Main Suite" thread-count="3" parallel="classes">
     <test name="Smoke Test">
         <classes>
-            <class name="tests.ParametersTest"></class>
-            <class name="tests.ExceptionHomeTest"></class>
-            <class name="tests.GroupHomeTest"></class>
+            <class name="tests.lesson_10.ParametersTest"></class>
+            <class name="tests.lesson_10.ExceptionHomeTest"></class>
+            <class name="tests.lesson_10.GroupHomeTest"></class>
         </classes>
     </test>
 </suite>

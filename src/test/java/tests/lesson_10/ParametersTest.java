@@ -1,4 +1,4 @@
-package tests;
+package tests.lesson_10;
 
 import baseEntities.BaseTest;
 import org.testng.Assert;

@@ -1,3 +1,5 @@
+package tests.lesson_10;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

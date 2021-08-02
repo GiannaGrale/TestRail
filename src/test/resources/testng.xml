@@ -14,7 +14,7 @@
         </run>
     </groups>
         <classes>
-            <class name="tests.GroupHomeTest"></class>
+            <class name="tests.lesson_10.GroupHomeTest"></class>
         </classes>
 </test>
 </suite>
