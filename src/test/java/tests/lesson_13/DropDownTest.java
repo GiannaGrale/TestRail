@@ -23,7 +23,7 @@ public class DropDownTest extends BaseTest {
     }
 
     @Test
-    public void dropDownByIndexTest() throws InterruptedException {
+    public void dropDownByIndexTest()   {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
         DashboardPage dashboardPage = new DashboardPage(driver, true);
@@ -32,6 +32,5 @@ public class DropDownTest extends BaseTest {
         dropDown.openMenu();
         dropDown.selectByIndex(10);
         waits.waitForVisibility(By.className("dialog-logo"));
-
     }
 }
