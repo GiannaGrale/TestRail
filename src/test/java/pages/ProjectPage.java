@@ -5,8 +5,30 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectPage extends BasePage {
+
+    @FindBys({
+            @FindBy(className = "form-group"),
+            @FindBy(css = "input.form-control[name='name']")
+    })
+    public WebElement name;
+
+    @FindAll({
+            @FindBy(id="suite_mode_single"),
+            @FindBy(id="suite_mode_single_baseline"),
+            @FindBy(id="suite_mode_single_multi")
+    })
+
+  public List<WebElement> optionlist;
+    
+
     private final static String endpoint = "index.php?/admin/projects/add";
     private final static By input_Project_Name_By = By.xpath("//div[@class='form-group']/input[@id='name']");
     private final static By announcement_Message_By = By.id("show_announcement");

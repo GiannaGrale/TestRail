@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 public class ProjectOverViewPage extends BasePage {
     private final static String endpoint = "index.php?/projects/overview";
     private final static By test_Cases_Add_By = By.id("sidebar-cases-add");
+    private final static By add_Milestone_By = By.id("sidebar-milestones-add");
+
 
     public ProjectOverViewPage(WebDriver driver, boolean openPageByURL) {
         super(driver, openPageByURL);
@@ -30,5 +32,13 @@ public class ProjectOverViewPage extends BasePage {
 
     public WebElement getTestCaseADDButton() {
         return driver.findElement(test_Cases_Add_By);
+    }
+
+    public WebElement getMilestoneAddButton() {
+        return driver.findElement(add_Milestone_By);
+    }
+
+    public void clickMilestoneButton() {
+        getMilestoneAddButton().click();
     }
 }
