@@ -55,7 +55,7 @@ public class AdvancedElementsHomeTaskTest extends BaseTest {
     }
 
     @Test
-    public void uploadFileTest()   {
+    public void uploadFileTest()  {
         driver.get("http://the-internet.herokuapp.com/upload");
         WebElement uploadFile = driver.findElement(By.id("file-upload"));
         File file = new File(System.getProperty("user.dir") + "/Man-Silhouette.jpg");
@@ -65,6 +65,5 @@ public class AdvancedElementsHomeTaskTest extends BaseTest {
         String nameOfPicture = driver.findElement(By.id("uploaded-files")).getText();
         waits.waitForVisibility(By.xpath("//h3[text()='File Uploaded!']"));
         Assert.assertEquals(nameOfPicture, "Man-Silhouette.jpg");
-
     }
 }

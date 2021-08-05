@@ -2,9 +2,11 @@ package baseEntities;
 
 import core.BrowserService;
 import core.ReadProperties;
+
 import org.openqa.selenium.support.PageFactory;
-import utils.Waits;
+
 import org.openqa.selenium.WebDriver;
+
 
 
 public abstract class BasePage {

@@ -55,9 +55,7 @@ public class TestRailUploadHomeTask extends BaseTest {
 
         WebElement attachElement = driver.findElement(By.id("attachmentNewSubmit"));
         attachElement.click();
-
         casePage.getTestCaseADD();
-
     }
 
     String getFile(){

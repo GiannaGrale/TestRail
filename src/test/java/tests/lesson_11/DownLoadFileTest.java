@@ -9,8 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.File;
+
 import java.util.HashMap;
 
 
@@ -27,8 +27,7 @@ public class DownLoadFileTest {
 
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("http://the-internet.herokuapp.com/download");
-
-        WebElement fileDown = driver.findElement(By.xpath("//*[@id='content']/div/a[1]"));
+        WebElement fileDown = driver.findElement(By.xpath("//*[@id='content']/div/a[3]"));
         fileDown.click();
         Thread.sleep(4000);
         File folder = new File(System.getProperty("user.dir"));
@@ -40,10 +39,10 @@ public class DownLoadFileTest {
         assert listOfFiles != null;
         for (File listOfFile : listOfFiles) {
             if (listOfFile.isFile()) {
-                String file = fileDown.getText();
+                String fileName = fileDown.getText();
                 System.out.println("File " + listOfFile.getName());
-                if (file.matches(file)) {
-                    text = new File(file);
+                if (fileName.matches(fileName)) {
+                    text = new File(fileName);
                     found = true;
                 }
             }
