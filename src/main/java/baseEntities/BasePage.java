@@ -2,9 +2,9 @@ package baseEntities;
 
 import core.BrowserService;
 import core.ReadProperties;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebDriver;
 import utils.Waits;
-
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -21,6 +21,7 @@ public abstract class BasePage {
         this.driver = driver;
         this.waits = new Waits(driver, properties.getTimeout());
         properties = new ReadProperties();
+        PageFactory.initElements(this.driver, this);
 
         if (openPageByURL) {
             openPage();
@@ -46,6 +47,5 @@ public abstract class BasePage {
         if (!isPageOpenedIndicator) {
             throw new AssertionError("Page was not opened");
         }
-
     }
 }

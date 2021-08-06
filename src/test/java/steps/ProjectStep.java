@@ -3,8 +3,8 @@ package steps;
 import baseEntities.BaseStep;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import pages.DashboardPage;
 import pages.AdminOverviewPage;
+import pages.DashboardPage;
 import pages.ProjectPage;
 
 public class ProjectStep extends BaseStep {

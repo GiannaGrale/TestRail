@@ -5,7 +5,7 @@
     <parameter name="pswValue" value="testPsw"></parameter>
     <test name="SmokeTest">
         <classes>
-            <class name="ParamTest"></class>
+            <class name="tests.lesson_10.ParamTest"></class>
         </classes>
     </test>
 </suite>

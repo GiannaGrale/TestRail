@@ -1,10 +1,14 @@
+package tests.lesson_10;
+
+import calculator.Calculator;
 import data.StaticProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.lesson_10.BaseTest;
 
-public class CalcTest extends BaseTest{
+public class CalcTest extends BaseTest {
 
-    private Calculator calculator = new Calculator("CalcTest");
+    private Calculator calculator = new Calculator("tests.lesson_10.CalcTest");
 
     @Test(description = "Critical path")
     public void testSum (){

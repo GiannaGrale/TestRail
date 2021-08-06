@@ -1,4 +1,4 @@
-package tests;
+package tests.testrail_tests;
 
 import baseEntities.BaseTest;
 import dataProvider.TestCaseStatProvider;
@@ -15,7 +15,7 @@ public class SmokeTest extends BaseTest {
     public void positiveLoginTest() {
         LoginStep loginStep = new LoginStep(driver);
         loginStep.login(properties.getUsername(), properties.getPassword());
-        Assert.assertEquals(new DashboardPage(driver, false).getDashboardButtonText(), "DASHBOARD");
+        Assert.assertEquals(new DashboardPage(driver,false).getDashboardButtonText(), "DASHBOARD");
     }
 
     @Test(priority = 4, dependsOnMethods = "negativeLoginTest2")

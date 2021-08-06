@@ -5,10 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 
 public class LoginPage extends BasePage {
     private final static String endpoint = "index.php?/auth/login/";
-    private final static By username_Input_By = By.id("name");
+    @FindBy (id = "name")
+    public WebElement usernameInput;
+
     private final static By password_Input_By = By.id("password");
     private final static By login_Button_By = By.id("button_primary");
     private final static By error_Message_By = By.className("error-text");
@@ -33,10 +37,6 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public WebElement getUsernameInput() {
-        return  driver.findElement(username_Input_By);
-    }
-
     public WebElement getPasswordInput() {
         return driver.findElement(password_Input_By);
     }
@@ -57,9 +57,6 @@ public class LoginPage extends BasePage {
         return driver.findElement(error_Login_By);
     }
 
-    public void setUsername(String text) {
-        getUsernameInput().sendKeys(text);
-    }
 
     public void setPassword(String text) {
         getPasswordInput().sendKeys(text);

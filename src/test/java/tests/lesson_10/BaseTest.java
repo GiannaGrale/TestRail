@@ -1,4 +1,7 @@
+package tests.lesson_10;
+
 import org.testng.annotations.*;
+import utils.Listener;
 
 @Listeners(Listener.class)
 public class BaseTest {

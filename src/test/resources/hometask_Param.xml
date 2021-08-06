@@ -7,7 +7,7 @@
     <parameter name="paramExpectedResult" value="some param expected result"></parameter>
     <test name="SmokeTest">
         <classes>
-            <class name="tests.ParametersTest"></class>
+            <class name="tests.lesson_10.ParametersTest"></class>
         </classes>
     </test>
 </suite>
