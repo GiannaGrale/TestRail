@@ -1,7 +1,6 @@
 package tests.testrail_tests;
 
 import baseEntities.BaseTest;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,7 +14,7 @@ import tests.builder.MilestoneBuilder;
 
 public class BuilderTest extends BaseTest {
 
-    MilestoneBuilder milestone = new MilestoneBuilder.Builder()
+    MilestoneBuilder milestone = MilestoneBuilder.newBuilder()
             .withUsername("atrostyanko+0601@gmail.com")
             .withPassword("hYE/RiquvQVIzXfiBwm3")
             .withMileStoneName("This is a milestone")
